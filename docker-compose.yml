@@ -1,0 +1,7 @@
+version: '3'
+services:
+  sheetjs:
+    build: .
+    image: sheetjs:latest
+    volumes:
+      - ./bits:/js-xlsx/bits
