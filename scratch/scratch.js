@@ -3,6 +3,6 @@
 const XLSX = require('xlsx');
 
 
-var wb = XLSX.readFile('Workbook1.xlsx');
+var wb = XLSX.readFile('Workbook2.xlsb');
 
-console.log(wb.Workbook.Sheets)
+console.log(wb.Workbook.Names)

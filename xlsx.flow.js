@@ -9147,7 +9147,7 @@ function stringify_formula(formula/*Array<any>*/, range, cell/*:any*/, supbooks,
 				break;
 			case 'PtgArea3d': /* 2.5.198.28 TODO */
 				type = f[1][0]; ixti = /*::Number(*/f[1][1]/*::)*/; r = f[1][2];
-				sname = (supbooks && supbooks[1] ? supbooks[1][ixti+1] : "**MISSING**");
+				sname = (supbooks && supbooks[1] ? supbooks[1][ixti+1] : supbooks.SheetNames[ixti]);
 				stack.push(sname + "!" + encode_range((r/*:any*/)));
 				break;
 			case 'PtgAttrSum': /* 2.5.198.41 */
@@ -10816,7 +10816,7 @@ function write_ws_xml_protection(sp)/*:string*/ {
 function parse_ws_xml_hlinks(s, data/*:Array<string>*/, rels) {
 	var dense = Array.isArray(s);
 	for(var i = 0; i != data.length; ++i) {
-		var val = parsexmltag(data[i], true);
+		var val = parsexmltag(utf8read(data[i]), true);
 		if(!val.ref) return;
 		var rel = rels ? rels['!id'][val.id] : null;
 		if(rel) {
