@@ -5,3 +5,4 @@ services:
     image: sheetjs:latest
     volumes:
       - ./bits:/js-xlsx/bits
+      - ./scratch:/js-xlsx/scratch

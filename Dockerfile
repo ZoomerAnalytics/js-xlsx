@@ -11,3 +11,9 @@ RUN make clean
 RUN make all
 RUN make dist-deps
 RUN make dist
+
+WORKDIR /js-xlsx/dist
+RUN npm link
+
+WORKDIR /js-xlsx/scratch
+RUN npm link xlsx
